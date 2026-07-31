@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footwear Luxe</title>
+    <link rel="stylesheet" href="shopnow.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Magra:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <script src="data.js"></script>
+    <nav>
+        <div class="logo-img">
+            <a href="home.html"><img src="./Pictures/logo.png" alt=""></a>
+        </div>
+        <div class="nav-links">
+            <a href="home.html">HOME</a>
+            <a href="shopnow.html" class="active">SHOP NOW</a>
+            <a href="aboutus.html">ABOUT US</a>
+            <a href="contact.html">CONTACT US</a>
+        </div>
+        <div class="nav-right">
+            <input type="text" id="search-input" class="search-input" placeholder="  Search">
+            <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a><span class="cart-badge"
+                id="nav-cart-count">0</span>
+            <i class="fa-solid fa-user" onclick="toggleAuthPopup()"></i>
+        </div>
+    </nav>
+
+    <div class="body">
+        <h2>SHOP <span>NOW</span></h2>
+
+        <div class="filter-bar">
+            <span>Filter:</span>
+            <button class="filter-btn active" data-category="all" onclick="setFilter('all')">All</button>
+            <button class="filter-btn" data-category="men" onclick="setFilter('men')">Men</button>
+            <button class="filter-btn" data-category="women" onclick="setFilter('women')">Women</button>
+            <button class="filter-btn" data-category="kids" onclick="setFilter('kids')">Kids</button>
+        </div>
+
+
+        <div id="product-container" class="product-grid"></div>
+    </div>
+
+
+
+    <button class="load-more-btn" id="load-more-btn" onclick="loadMore()">Load More</button>
+
+    <div class="auth-overlay" id="auth-overlay" onclick="closeOnOverlay(event)">
+        <button class="auth-close" onclick="closeAuthPopup()">✕</button>
+        <div class="auth-popup">
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="switchAuthTab('login')">LOGIN</button>
+                <button class="auth-tab" onclick="switchAuthTab('signup')">SIGN UP</button>
+            </div>
+            <div class="auth-body">
+                <!-- LOGIN -->
+                <div class="auth-section active" id="popup-login">
+                    <div class="auth-msg" id="login-msg"></div>
+                    <div class="auth-field"><label>Email</label><input type="email" id="p-login-email"
+                            placeholder="you@example.com"></div>
+                    <div class="auth-field"><label>Password</label><input type="password" id="p-login-pass"
+                            placeholder="Your password"></div>
+                    <button class="auth-submit" onclick="doLogin()">LOGIN</button>
+                </div>
+                <!-- SIGNUP -->
+                <div class="auth-section" id="popup-signup">
+                    <div class="auth-msg" id="signup-msg"></div>
+                    <div class="auth-field"><label>Full Name</label><input type="text" id="p-signup-name"
+                            placeholder="Your name"></div>
+                    <div class="auth-field"><label>Email</label><input type="email" id="p-signup-email"
+                            placeholder="you@example.com"></div>
+                    <div class="auth-field"><label>Password</label><input type="password" id="p-signup-pass"
+                            placeholder="Min. 8 characters"></div>
+                    <button class="auth-submit" onclick="doSignup()">CREATE ACCOUNT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="first-col">
+            <a href="home.html"><img src="./Pictures/logo.png" alt=""></a>
+            <h2>FOOTWEAR <br> <span>LUXE</span></h2>
+        </div>
+        <div class="second-col">
+            <h3>CONTACT US</h3><br><br>
+            <a href="mailto:support@yourfootwear.com">
+                <i class="fas fa-envelope"></i> &nbsp; support@yourfootwear.com
+            </a><br><br>
+            <a href="tel:+923001234567">
+                <i class="fas fa-phone-alt fa-flip-horizontal"></i> &nbsp; +92 300 1234567
+            </a><br><br>
+            <a href="https://wa.me/923001234567" target="_blank">
+                <i class="fab fa-whatsapp"></i> &nbsp; +92 300 1234567
+            </a>
+        </div>
+        <div class="third-col">
+            <h3>CUSTOMER INFORMATION</h3><br><br>
+            <a href="shippingpolicy.html">
+                <p>Shipping Policy</p><br>
+            </a>
+            <a href="terms&conditions.html">
+                <p>Terms & Condition</p><br>
+            </a>
+            <a href="privacypolicy.html">
+                <p>Privacy Policy</p><br>
+            </a>
+            <a href="exchangepolicy.html">
+                <p>Exchange & Returns Policy</p><br>
+            </a>
+            <a href="contact.html#FAQ">
+                <p>FAQ's</p>
+            </a>
+        </div>
+        <div class="fourth-col">
+            <h3>SIGN UP & SAVE</h3><br><br>
+            <p>Subscribe to get special offers, free giveaways,<br> and once-in-a-lifetime deals.</p><br>
+            <form action="">
+                <input type="email" placeholder="&nbsp;&nbsp;Your email address">
+                <button type="submit">Submit</button>
+            </form>
+            <div class="icons">
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-x-twitter"></i></a>
+                <a href=""><i class="fab fa-youtube"></i></a>
+                <a href=""><i class="fab fa-tiktok"></i></a>
+            </div>
+            <img src="./Pictures/mastercard.png" alt="">
+            <img src="./Pictures/visa.png" alt="">
+        </div>
+    </footer>
+    <p class="copyright">Copyright © 2026 Footwear Luxe all rights reserved.</p>
+
+    <script>
+        let visibleCount = 24; // Start with 16
+        let activeCategory = 'all';  // 'all' | 'men' | 'women' | 'kids'
+
+        /* ── Filter helper ── */
+        function setFilter(category) {
+            activeCategory = category;
+            visibleCount = 24;          // reset pagination on filter change
+
+            // update button styles
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.category === category);
+            });
+
+            displayProducts();
+        }
+
+        function displayProducts() {
+            const productContainer = document.getElementById('product-container');
+            if (!productContainer) return;
+
+            // 1. Filter by category
+            //    Each product in data.js should have a `category` field: 'men' | 'women' | 'kids'
+            //    If category field is missing we still show the product under 'all'
+            const filtered = activeCategory === 'all'
+                ? products
+                : products.filter(p => p.category && p.category.toLowerCase() === activeCategory);
+
+            // 2. Slice for pagination
+            const itemsToShow = filtered.slice(0, visibleCount);
+
+            // 3. Render
+            if (itemsToShow.length === 0) {
+                productContainer.innerHTML = `<p class="no-results">No products found in this category yet.</p>`;
+            } else {
+                productContainer.innerHTML = itemsToShow.map(product => `
+                    <div class="card">
+                        <a href="description.html?id=${product.id}">
+                            <img src="${product.images[0]}" alt="${product.name}" class="zoom-img">
+                        </a>
+                        <h3>${product.name}</h3>
+                        <div class="prices">
+                            <s><h4 class="old">Rs ${product.oldPrice}</h4></s>
+                            <h4 class="new">Rs ${product.newPrice}</h4>
+                            <h4 class="discount">Save ${product.discount}</h4>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            const loadMoreBtn = document.getElementById("load-more-btn");
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', () => {
+                    visibleCount += 8;
+                    displayProducts();
+                    console.log("New visible count:", visibleCount); // Check your console!
+                });
+            }
+
+            // 3. Logic to hide/show the "Load More" button
+            if (loadMoreBtn) {
+                if (visibleCount >= products.length) {
+                    loadMoreBtn.style.display = 'none'; // Hide if no more left
+                } else {
+                    loadMoreBtn.style.display = 'block'; // Show if more items exist
+                }
+            }
+        }
+
+        // 4. Function for the button click
+        function loadMore() {
+            visibleCount += 8; // Add 8 more
+            displayProducts(); // Refresh the list
+        }
+
+        // Initial display call
+        displayProducts();
+
+        function updateNavBadge() {
+            const cart = JSON.parse(localStorage.getItem('fl_cart') || '[]');
+            document.getElementById('nav-cart-count').textContent = cart.reduce((s, i) => s + i.qty, 0);
+        }
+        updateNavBadge();
+
+        function toggleAuthPopup() {
+            document.getElementById('auth-overlay').classList.toggle('open');
+        }
+        function closeAuthPopup() {
+            document.getElementById('auth-overlay').classList.remove('open');
+        }
+        function closeOnOverlay(e) {
+            if (e.target === document.getElementById('auth-overlay')) closeAuthPopup();
+        }
+        function switchAuthTab(tab) {
+            document.querySelectorAll('.auth-tab').forEach(function (t, i) {
+                t.classList.toggle('active', tab === 'login' ? i === 0 : i === 1);
+            });
+            document.getElementById('popup-login').classList.toggle('active', tab === 'login');
+            document.getElementById('popup-signup').classList.toggle('active', tab === 'signup');
+        }
+        function showMsg(id, text, type) {
+            var el = document.getElementById(id);
+            el.textContent = text; el.className = 'auth-msg ' + type;
+        }
+        function doLogin() {
+            var email = document.getElementById('p-login-email').value.trim();
+            var pass = document.getElementById('p-login-pass').value.trim();
+            if (!email || !pass) { showMsg('login-msg', 'Please fill all fields.', 'error'); return; }
+            var users = JSON.parse(localStorage.getItem('fl_users') || '[]');
+            var user = users.find(function (u) { return u.email === email && u.password === pass; });
+            if (!user) { showMsg('login-msg', 'Wrong email or password.', 'error'); return; }
+            localStorage.setItem('fl_loggedIn', JSON.stringify({ name: user.name, email: email }));
+            showMsg('login-msg', '✓ Welcome back, ' + user.name + '!', 'success');
+            setTimeout(closeAuthPopup, 1500);
+        }
+        function doSignup() {
+            var name = document.getElementById('p-signup-name').value.trim();
+            var email = document.getElementById('p-signup-email').value.trim();
+            var pass = document.getElementById('p-signup-pass').value.trim();
+            if (!name || !email || pass.length < 8) { showMsg('signup-msg', 'Fill all fields. Password min 8 chars.', 'error'); return; }
+            var users = JSON.parse(localStorage.getItem('fl_users') || '[]');
+            if (users.find(function (u) { return u.email === email; })) { showMsg('signup-msg', 'Email already registered.', 'error'); return; }
+            users.push({ name: name, email: email, password: pass });
+            localStorage.setItem('fl_users', JSON.stringify(users));
+            showMsg('signup-msg', '✓ Account created! Please login.', 'success');
+            setTimeout(function () { switchAuthTab('login'); }, 1500);
+        }
+    </script>
+
+</body>
+
+</html>

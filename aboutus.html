@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Footwear Luxe</title>
+    <link rel="stylesheet" href="aboutus.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Magra:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo-img">
+            <a href="home.html"><img src="./Pictures/logo.png" alt=""></a>
+        </div>
+        <div class="nav-links">
+            <a href="home.html">HOME</a>
+            <a href="shopnow.html">SHOP NOW</a>
+            <a href="aboutus.html" class="active">ABOUT US</a>
+            <a href="contact.html">CONTACT US</a>
+        </div>
+        <div class="nav-right">
+            <input type="text" class="search-input" placeholder="  Search">
+            <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a><span class="cart-badge"
+                id="nav-cart-count">0</span>
+            <i class="fa-solid fa-user" onclick="toggleAuthPopup()"></i>
+        </div>
+    </nav>
+
+    <div class="hero-banner">
+        <h2>ABOUT <span>US</span></h2>
+    </div>
+
+    <div class="section">
+        <div class="story-grid">
+            <div class="story-text">
+                <h2>OUR <span>STORY</span></h2>
+                <p>Footwear Luxe was born from a simple belief: everyone deserves to walk in style without compromise.
+                    Founded in Lahore, Pakistan in 2018, we set out to bridge the gap between international quality and
+                    local craftsmanship.</p>
+                <p>What started as a small workshop with three artisans has grown into one of Pakistan's most trusted
+                    footwear brands. Every pair we craft tells a story of dedication, precision, and passion for the art
+                    of shoemaking.</p>
+                <p>Today, we serve thousands of customers across Pakistan, offering everything from everyday comfort to
+                    formal elegance — all at prices that respect your hard-earned money.</p>
+            </div>
+            <div class="story-image">
+                <i class="fas fa-shoe-prints"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="stats-section">
+        <div class="stat-card">
+            <div class="number">10K+</div>
+            <div class="label">Happy Customers</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">500+</div>
+            <div class="label">Shoe Styles</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">6+</div>
+            <div class="label">Years of Excellence</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">4.8★</div>
+            <div class="label">Average Rating</div>
+        </div>
+    </div>
+
+    <div class="section" style="background:#f9f9ff;">
+        <h2 class="section-title">OUR <span>VALUES</span></h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <i class="fas fa-gem"></i>
+                <h3>Premium Quality</h3>
+                <p>Every shoe is crafted with the finest materials, ensuring durability and comfort that lasts for
+                    years.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-heart"></i>
+                <h3>Customer First</h3>
+                <p>Your satisfaction drives everything we do. From design to delivery, your experience is our priority.
+                </p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-leaf"></i>
+                <h3>Sustainable Craft</h3>
+                <p>We're committed to responsible sourcing and sustainable manufacturing practices for a better
+                    tomorrow.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-handshake"></i>
+                <h3>Fair Pricing</h3>
+                <p>Luxury shouldn't break the bank. We offer competitive prices without ever compromising on quality.
+                </p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-truck"></i>
+                <h3>Fast Delivery</h3>
+                <p>We deliver across Pakistan swiftly, ensuring your new favorites reach you in perfect condition.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-undo"></i>
+                <h3>Easy Returns</h3>
+                <p>Not satisfied? Our 7-day hassle-free return policy means you can shop with complete confidence.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">MEET THE <span>TEAM</span></h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="avatar">👨</div>
+                <h3>Tahir Malik</h3>
+                <div class="role">Founder & CEO</div>
+                <p>With 15 years in the footwear industry, Tahir leads Footwear Luxe with vision and passion.</p>
+            </div>
+            <div class="team-card">
+                <div class="avatar">👨</div>
+                <h3>Shakeel</h3>
+                <div class="role">Head of Design</div>
+                <p>Shakeel brings international fashion trends to every collection, blending elegance with comfort.</p>
+            </div>
+            <div class="team-card">
+                <div class="avatar">👨</div>
+                <h3>Roman Mehar</h3>
+                <div class="role">Operations Manager</div>
+                <p>Mehar ensures every order is handled with precision, from crafting to customer delivery.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="first-col">
+            <a href="home.html"><img src="./Pictures/logo.png" alt=""></a>
+            <h2>FOOTWEAR <br><span>LUXE</span></h2>
+        </div>
+        <div class="second-col">
+            <h3>CONTACT US</h3><br><br>
+            <a href="mailto:support@yourfootwear.com"><i class="fas fa-envelope"></i> &nbsp;
+                support@yourfootwear.com</a><br><br>
+            <a href="tel:+923001234567"><i class="fas fa-phone-alt fa-flip-horizontal"></i> &nbsp; +92 300
+                1234567</a><br><br>
+            <a href="https://wa.me/923001234567" target="_blank"><i class="fab fa-whatsapp"></i> &nbsp; +92 300
+                1234567</a>
+        </div>
+        <div class="third-col">
+            <h3>CUSTOMER INFORMATION</h3><br><br>
+            <a href="shippingpolicy.html">
+                <p>Shipping Policy</p><br>
+            </a>
+            <a href="terms&conditions.html">
+                <p>Terms & Condition</p><br>
+            </a>
+            <a href="privacypolicy.html">
+                <p>Privacy Policy</p><br>
+            </a>
+            <a href="exchangepolicy.html">
+                <p>Exchange & Returns Policy</p><br>
+            </a>
+            <a href="contact.html#FAQ">
+                <p>FAQ's</p>
+            </a>
+        </div>
+        <div class="fourth-col">
+            <h3>SIGN UP & SAVE</h3><br><br>
+            <p>Subscribe to get special offers, free giveaways,<br> and once-in-a-lifetime deals.</p><br>
+            <form action=""><input type="email" placeholder="&nbsp;&nbsp;Your email address"><button
+                    type="submit">Submit</button></form>
+            <div class="icons">
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-x-twitter"></i></a>
+                <a href=""><i class="fab fa-youtube"></i></a>
+                <a href=""><i class="fab fa-tiktok"></i></a>
+            </div>
+            <img src="./Pictures/mastercard.png" alt="">
+            <img src="./Pictures/visa.png" alt="">
+        </div>
+    </footer>
+    <p class="copyright">Copyright © 2026 Footwear Luxe all rights reserved.</p>
+</body>
+
+<div class="auth-overlay" id="auth-overlay" onclick="closeOnOverlay(event)">
+    <button class="auth-close" onclick="closeAuthPopup()">✕</button>
+    <div class="auth-popup">
+        <div class="auth-tabs">
+            <button class="auth-tab active" onclick="switchAuthTab('login')">LOGIN</button>
+            <button class="auth-tab" onclick="switchAuthTab('signup')">SIGN UP</button>
+        </div>
+        <div class="auth-body">
+            <!-- LOGIN -->
+            <div class="auth-section active" id="popup-login">
+                <div class="auth-msg" id="login-msg"></div>
+                <div class="auth-field"><label>Email</label><input type="email" id="p-login-email"
+                        placeholder="you@example.com"></div>
+                <div class="auth-field"><label>Password</label><input type="password" id="p-login-pass"
+                        placeholder="Your password"></div>
+                <button class="auth-submit" onclick="doLogin()">LOGIN</button>
+            </div>
+            <!-- SIGNUP -->
+            <div class="auth-section" id="popup-signup">
+                <div class="auth-msg" id="signup-msg"></div>
+                <div class="auth-field"><label>Full Name</label><input type="text" id="p-signup-name"
+                        placeholder="Your name"></div>
+                <div class="auth-field"><label>Email</label><input type="email" id="p-signup-email"
+                        placeholder="you@example.com"></div>
+                <div class="auth-field"><label>Password</label><input type="password" id="p-signup-pass"
+                        placeholder="Min. 8 characters"></div>
+                <button class="auth-submit" onclick="doSignup()">CREATE ACCOUNT</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateNavBadge() {
+            const cart = JSON.parse(localStorage.getItem('fl_cart') || '[]');
+            document.getElementById('nav-cart-count').textContent = cart.reduce((s, i) => s + i.qty, 0);
+        }
+        updateNavBadge();
+
+        function toggleAuthPopup() {
+            document.getElementById('auth-overlay').classList.toggle('open');
+        }
+        function closeAuthPopup() {
+            document.getElementById('auth-overlay').classList.remove('open');
+        }
+        function closeOnOverlay(e) {
+            if (e.target === document.getElementById('auth-overlay')) closeAuthPopup();
+        }
+        function switchAuthTab(tab) {
+            document.querySelectorAll('.auth-tab').forEach(function (t, i) {
+                t.classList.toggle('active', tab === 'login' ? i === 0 : i === 1);
+            });
+            document.getElementById('popup-login').classList.toggle('active', tab === 'login');
+            document.getElementById('popup-signup').classList.toggle('active', tab === 'signup');
+        }
+        function showMsg(id, text, type) {
+            var el = document.getElementById(id);
+            el.textContent = text; el.className = 'auth-msg ' + type;
+        }
+        function doLogin() {
+            var email = document.getElementById('p-login-email').value.trim();
+            var pass = document.getElementById('p-login-pass').value.trim();
+            if (!email || !pass) { showMsg('login-msg', 'Please fill all fields.', 'error'); return; }
+            var users = JSON.parse(localStorage.getItem('fl_users') || '[]');
+            var user = users.find(function (u) { return u.email === email && u.password === pass; });
+            if (!user) { showMsg('login-msg', 'Wrong email or password.', 'error'); return; }
+            localStorage.setItem('fl_loggedIn', JSON.stringify({ name: user.name, email: email }));
+            showMsg('login-msg', '✓ Welcome back, ' + user.name + '!', 'success');
+            setTimeout(closeAuthPopup, 1500);
+        }
+        function doSignup() {
+            var name = document.getElementById('p-signup-name').value.trim();
+            var email = document.getElementById('p-signup-email').value.trim();
+            var pass = document.getElementById('p-signup-pass').value.trim();
+            if (!name || !email || pass.length < 8) { showMsg('signup-msg', 'Fill all fields. Password min 8 chars.', 'error'); return; }
+            var users = JSON.parse(localStorage.getItem('fl_users') || '[]');
+            if (users.find(function (u) { return u.email === email; })) { showMsg('signup-msg', 'Email already registered.', 'error'); return; }
+            users.push({ name: name, email: email, password: pass });
+            localStorage.setItem('fl_users', JSON.stringify(users));
+            showMsg('signup-msg', '✓ Account created! Please login.', 'success');
+            setTimeout(function () { switchAuthTab('login'); }, 1500);
+        }
+    </script>
+
+</html>

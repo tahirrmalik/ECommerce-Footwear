@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Description</title>
+  <link rel="stylesheet" href="description.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Magra:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo-img">
+      <a href="home.html"><img src="./Pictures/logo.png" alt=""></a>
+    </div>
+    <div class="nav-links">
+      <a href="home.html">HOME</a>
+      <a href="shopnow.html">SHOP NOW</a>
+      <a href="aboutus.html">ABOUT US</a>
+      <a href="contact.html">CONTACT US</a>
+    </div>
+    <div class="nav-right">
+      <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a><span class="cart-badge"
+        id="nav-cart-count">0</span>
+      <i class="fa-solid fa-user" onclick="toggleAuthPopup()"></i>
+    </div>
+  </nav>
+
+
+  <script src="data.js"></script>
+  <script src="homepage.js"></script>
+
+  <div class="your-pick">
+    <h2>YOUR <span>PICK</span></h2>
+  </div>
+  <div class="product-wrapper">
+
+    <div class="des-img">
+      <img id="img1" src="">
+      <img id="img2" src=""><br>
+      <img id="img3" src="">
+      <img id="img4" src="">
+    </div>
+    <div class="des-detail">
+      <h1 class="name" id="name"></h1>
+      <h4 class="id" id="id"></h4>
+      <div class="prices">
+        <s>
+          <p class="old" id="oldPrice"></p>
+        </s>
+        <p class="new" id="newPrice"></p>
+        <p class="discount">Save</p>
+        <p class="discount" id="discount"></p>
+      </div>
+      <hr>
+      <p class="color">COLOR</p>
+      <p id="colors"></p>
+      <hr>
+      <p class="size">SIZES</p>
+      <p id="sizes"></p>
+      <hr>
+      <p class="quantity">QUANTITY</p>
+      <input class="input-btn" type="number" min="1" value="1">
+      <br>
+      <input class="add-btn" type="submit" onclick="addToCart()" value="ADD TO CART">
+      <br>
+    </div>
+
+  </div>
+
+
+  <div class="related-products">
+    <h2>RELATED <span>PRODUCTS</span></h2>
+    <div id="related-section" class="first-row"></div>
+  </div>
+
+  <button class="load-more-related" id="load-more-related" onclick="loadMore()">Load More</button>
+
+  <footer>
+    <div class="first-col">
+      <a href="home.html"><img src="./Pictures/logo.png" alt="" /></a>
+      <h2>
+        FOOTWEAR <br />
+        <span>LUXE</span>
+      </h2>
+    </div>
+    <div class="second-col">
+      <h3>CONTACT US</h3>
+      <br /><br />
+      <a href="mailto:support@yourfootwear.com">
+        <i class="fas fa-envelope"></i> &nbsp; support@yourfootwear.com </a><br /><br />
+      <a href="tel:+923001234567">
+        <i class="fas fa-phone-alt fa-flip-horizontal"></i> &nbsp; +92 300
+        1234567 </a><br /><br />
+      <a href="https://wa.me/923001234567" target="_blank">
+        <i class="fab fa-whatsapp"></i> &nbsp; +92 300 1234567
+      </a>
+    </div>
+    <div class="third-col">
+      <h3>CUSTOMER INFORMATION</h3>
+      <br /><br />
+      <a href="shippingpolicy.html">
+        <p>Shipping Policy</p>
+        <br />
+      </a>
+      <a href="terms&conditions.html">
+        <p>Terms & Condition</p>
+        <br />
+      </a>
+      <a href="privacypolicy.html">
+        <p>Privacy Policy</p>
+        <br />
+      </a>
+      <a href="exchangepolicy.html">
+        <p>Exchange & Returns Policy</p>
+        <br />
+      </a>
+      <a href="contact.html#FAQ">
+        <p>FAQ's</p>
+      </a>
+    </div>
+    <div class="fourth-col">
+      <h3>SIGN UP & SAVE</h3>
+      <br /><br />
+      <p>
+        Subscribe to get special offers, free giveaways,<br />
+        and once-in-a-lifetime deals.
+      </p>
+      <br />
+      <form action="">
+        <input type="email" placeholder="&nbsp;&nbsp;Your email address" />
+        <button type="submit">Submit</button>
+      </form>
+      <div class="icons">
+        <a href=""><i class="fab fa-facebook-f"></i></a>
+        <a href=""><i class="fab fa-instagram"></i></a>
+        <a href=""><i class="fab fa-x-twitter"></i></a>
+        <a href=""><i class="fab fa-youtube"></i></a>
+        <a href=""><i class="fab fa-tiktok"></i></a>
+      </div>
+      <img src="./Pictures/mastercard.png" alt="" />
+      <img src="./Pictures/visa.png" alt="" />
+    </div>
+  </footer>
+  <p class="copyright">Copyright © 2026 Footwear Luxe all rights reserved.</p>
+
+  <!-- Auth Popup Overlay -->
+  <div class="auth-overlay" id="auth-overlay" onclick="closeOnOverlay(event)">
+    <button class="auth-close" onclick="closeAuthPopup()">✕</button>
+    <div class="auth-popup">
+      <div class="auth-tabs">
+        <button class="auth-tab active" onclick="switchAuthTab('login')">LOGIN</button>
+        <button class="auth-tab" onclick="switchAuthTab('signup')">SIGN UP</button>
+      </div>
+      <div class="auth-body">
+        <!-- LOGIN -->
+        <div class="auth-section active" id="popup-login">
+          <div class="auth-msg" id="login-msg"></div>
+          <div class="auth-field"><label>Email</label><input type="email" id="p-login-email"
+              placeholder="you@example.com"></div>
+          <div class="auth-field"><label>Password</label><input type="password" id="p-login-pass"
+              placeholder="Your password"></div>
+          <button class="auth-submit" onclick="doLogin()">LOGIN</button>
+        </div>
+        <!-- SIGNUP -->
+        <div class="auth-section" id="popup-signup">
+          <div class="auth-msg" id="signup-msg"></div>
+          <div class="auth-field"><label>Full Name</label><input type="text" id="p-signup-name" placeholder="Your name">
+          </div>
+          <div class="auth-field"><label>Email</label><input type="email" id="p-signup-email"
+              placeholder="you@example.com"></div>
+          <div class="auth-field"><label>Password</label><input type="password" id="p-signup-pass"
+              placeholder="Min. 8 characters"></div>
+          <button class="auth-submit" onclick="doSignup()">CREATE ACCOUNT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+
+    function updateNavBadge() {
+      var cartData = JSON.parse(localStorage.getItem('fl_cart') || '[]');
+      var total = cartData.reduce(function (s, i) { return s + i.qty; }, 0);
+      var badge = document.getElementById('nav-cart-count');
+      badge.textContent = total;
+      // pop animation
+      badge.classList.remove('badge-pop');
+      void badge.offsetWidth; // force reflow so animation re-triggers
+      badge.classList.add('badge-pop');
+    }
+    updateNavBadge();
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    // 1. Corrected variable name to 'products'
+    const shoe = products.find(item => item.id === id);
+
+    if (shoe) {
+      console.log("Shoe found:", shoe.name); // Debugging log
+
+      document.getElementById('name').innerText = shoe.name;
+      document.getElementById('id').innerText = shoe.id;
+      document.getElementById('oldPrice').innerText = shoe.oldPrice ? "Rs " + shoe.oldPrice : "";
+      document.getElementById('newPrice').innerText = shoe.newPrice ? "Rs " + shoe.newPrice : "";
+      document.getElementById('discount').innerText = shoe.discount || "";
+
+      // 2. Added check for Colors (prevents crash)
+      const colorDiv = document.getElementById('colors');
+      if (shoe.colors) {
+        colorDiv.innerHTML = shoe.colors.map(color => `<button class="color-btn">${color}</button>`).join('');
+      } else {
+        colorDiv.innerHTML = "Standard Colors";
+      }
+
+      // 3. Added check for Sizes (prevents crash)
+      const sizeDiv = document.getElementById('sizes');
+      if (shoe.sizes) {
+        sizeDiv.innerHTML = shoe.sizes.map(size => `<button class="size-btn">${size}</button>`).join('');
+      } else {
+        sizeDiv.innerHTML = "Standard Sizes";
+      }
+
+      // 4. Added check for Images
+      if (shoe.images) {
+        shoe.images.forEach((imgUrl, index) => {
+          const imgElement = document.getElementById(`img${index + 1}`);
+          if (imgElement) imgElement.src = imgUrl;
+        });
+      }
+    }
+    
+    // 1. Filter the related products first
+    const related = products.filter(item => item.category === shoe.category && item.id !== id);
+    const relatedDiv = document.getElementById('related-section');
+    const loadMoreRelatedBtn = document.getElementById('load-more-related');
+
+    let visibleRelatedCount = 4; // Initial items to show
+
+    function displayRelatedProducts() {
+      if (!relatedDiv) return;
+
+      // 2. Slice the filtered related array
+      const itemsToShow = related.slice(0, visibleRelatedCount);
+
+      // 3. Render the items
+      relatedDiv.innerHTML = itemsToShow.map(item => `
+        <div class="card">
+            <a href="description.html?id=${item.id}"><img src="${item.images[0]}" class="zoom-img"></a>
+            <h3 class="item-name">${item.name}</h3>
+            <div class="related-prices">
+                <s><h4 class="oldd">Rs ${item.oldPrice}</h4></s>
+                <h4 class="new">Rs ${item.newPrice}</h4>
+                <h4 class="discount">Save ${item.discount}</h4>
+            </div>
+        </div>
+    `).join('');
+
+      // 4. Show/Hide the "Load More" button for related products
+      if (loadMoreRelatedBtn) {
+        if (visibleRelatedCount >= related.length) {
+          loadMoreRelatedBtn.style.display = 'none';
+        } else {
+          loadMoreRelatedBtn.style.display = 'block';
+        }
+      }
+    }
+
+    // 5. Setup the button click listener
+    if (loadMoreRelatedBtn) {
+      loadMoreRelatedBtn.addEventListener('click', () => {
+        visibleRelatedCount += 4; // Load next 4
+        displayRelatedProducts();
+      });
+    }
+
+    // Initial call
+    displayRelatedProducts();
+
+    const buttons = document.querySelectorAll('.size-btn');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', function () {
+        // 1. Remove 'active-style' from all buttons
+        buttons.forEach(btn => btn.classList.remove('active-style'));
+
+        // 2. Add 'active-style' to the one we just clicked
+        this.classList.add('active-style');
+      });
+    });
+
+    function addToCart() {
+      const activeSize = document.querySelector('.size-btn.active-style');
+      if (!activeSize) { alert('Please select a size first!'); return; }
+      const qty = parseInt(document.querySelector('.input-btn').value) || 1;
+      const cart = JSON.parse(localStorage.getItem('fl_cart') || '[]');
+      const existing = cart.findIndex(i => i.id === shoe.id && i.size === activeSize.textContent);
+      if (existing >= 0) {
+        cart[existing].qty += qty;
+      } else {
+        cart.push({
+          id: shoe.id,
+          name: shoe.name,
+          image: shoe.images[0],
+          size: activeSize.textContent,
+          color: shoe.colors ? shoe.colors[0] : '',
+          oldPrice: shoe.oldPrice,
+          newPrice: shoe.newPrice,
+          discount: shoe.discount,
+          qty
+        });
+      }
+      localStorage.setItem('fl_cart', JSON.stringify(cart));
+      alert('Added to cart!');
+
+      updateNavBadge();
+    }
+
+    function toggleAuthPopup() {
+      document.getElementById('auth-overlay').classList.toggle('open');
+    }
+    function closeAuthPopup() {
+      document.getElementById('auth-overlay').classList.remove('open');
+    }
+    function closeOnOverlay(e) {
+      if (e.target === document.getElementById('auth-overlay')) closeAuthPopup();
+    }
+    function switchAuthTab(tab) {
+      document.querySelectorAll('.auth-tab').forEach(function (t, i) {
+        t.classList.toggle('active', tab === 'login' ? i === 0 : i === 1);
+      });
+      document.getElementById('popup-login').classList.toggle('active', tab === 'login');
+      document.getElementById('popup-signup').classList.toggle('active', tab === 'signup');
+    }
+    function showMsg(id, text, type) {
+      var el = document.getElementById(id);
+      el.textContent = text; el.className = 'auth-msg ' + type;
+    }
+    function doLogin() {
+      var email = document.getElementById('p-login-email').value.trim();
+      var pass = document.getElementById('p-login-pass').value.trim();
+      if (!email || !pass) { showMsg('login-msg', 'Please fill all fields.', 'error'); return; }
+      var users = JSON.parse(localStorage.getItem('fl_users') || '[]');
+      var user = users.find(function (u) { return u.email === email && u.password === pass; });
+      if (!user) { showMsg('login-msg', 'Wrong email or password.', 'error'); return; }
+      localStorage.setItem('fl_loggedIn', JSON.stringify({ name: user.name, email: email }));
+      showMsg('login-msg', '✓ Welcome back, ' + user.name + '!', 'success');
+      setTimeout(closeAuthPopup, 1500);
+    }
+    function doSignup() {
+      var name = document.getElementById('p-signup-name').value.trim();
+      var email = document.getElementById('p-signup-email').value.trim();
+      var pass = document.getElementById('p-signup-pass').value.trim();
+      if (!name || !email || pass.length < 8) { showMsg('signup-msg', 'Fill all fields. Password min 8 chars.', 'error'); return; }
+      var users = JSON.parse(localStorage.getItem('fl_users') || '[]');
+      if (users.find(function (u) { return u.email === email; })) { showMsg('signup-msg', 'Email already registered.', 'error'); return; }
+      users.push({ name: name, email: email, password: pass });
+      localStorage.setItem('fl_users', JSON.stringify(users));
+      showMsg('signup-msg', '✓ Account created! Please login.', 'success');
+      setTimeout(function () { switchAuthTab('login'); }, 1500);
+    }
+  </script>
+</body>
+
+</html>

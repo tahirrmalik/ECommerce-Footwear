@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Footwear Luxe</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Magra:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <div class="logo-img">
+            <a href="home.html"><img src="./Pictures/logo.png" alt=""></a>
+        </div>
+        <div class="nav-links">
+            <a href="home.html">HOME</a>
+            <a href="shopnow.html">SHOP NOW</a>
+            <a href="aboutus.html">ABOUT US</a>
+            <a href="contact.html" class="active">CONTACT US</a>
+        </div>
+        <div class="nav-right">
+            <input type="text" class="search-input" placeholder="  Search">
+            <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a><span class="cart-badge"
+                id="nav-cart-count">0</span>
+            <i class="fa-solid fa-user" onclick="toggleAuthPopup()"></i>
+        </div>
+    </nav>
+
+    <div class="hero-banner">
+        <h2>CONTACT <span>US</span></h2>
+    </div>
+
+    <div class="contact-section">
+        <!-- Info -->
+        <div class="contact-info">
+            <h2>GET IN <span>TOUCH</span></h2>
+            <p>Have a question, concern, or just want to say hello? We'd love to hear from you. Our team typically
+                responds within 24 hours.</p>
+
+            <div class="info-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <h4>Our Store</h4>
+                    <p>Rehman Plaza<br>Gujrat, Punjab, Pakistan</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <h4>Phone</h4>
+                    <p><a href="tel:+923001234567">+92 300 1234567</a></p>
+                    <p><a href="tel:+924235001234">+92 42 3500 1234</a></p>
+                </div>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h4>Email</h4>
+                    <p><a href="mailto:support@footwearluxe.com">support@footwearluxe.com</a></p>
+                    <p><a href="mailto:info@footwearluxe.com">info@footwearluxe.com</a></p>
+                </div>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-clock"></i>
+                <div>
+                    <h4>Business Hours</h4>
+                    <p>Mon – Sat: 10:00 AM – 9:00 PM</p>
+                    <p>Sunday: 12:00 PM – 7:00 PM</p>
+                </div>
+            </div>
+            <div class="social-links">
+                <h4>Follow Us</h4>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <!-- Form -->
+        <div class="contact-form-box">
+            <h2>SEND A <span>MESSAGE</span></h2>
+            <p>Fill out the form and we'll get back to you as soon as possible.</p>
+            <div class="success-msg" id="contact-success">✓ Message sent! We'll get back to you within 24 hours.</div>
+            <div class="row-2">
+                <div class="field">
+                    <label>First Name</label>
+                    <input type="text" id="c-fname" placeholder="Your first name">
+                </div>
+                <div class="field">
+                    <label>Last Name</label>
+                    <input type="text" id="c-lname" placeholder="Your last name">
+                </div>
+            </div>
+            <div class="field">
+                <label>Email Address</label>
+                <input type="email" id="c-email" placeholder="you@example.com">
+            </div>
+            <div class="field">
+                <label>Phone Number</label>
+                <input type="tel" id="c-phone" placeholder="+92 300 0000000">
+            </div>
+            <div class="field">
+                <label>Subject</label>
+                <select id="c-subject">
+                    <option value="">Select a subject</option>
+                    <option>Order Inquiry</option>
+                    <option>Product Question</option>
+                    <option>Return / Exchange</option>
+                    <option>Shipping Issue</option>
+                    <option>Feedback</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Message</label>
+                <textarea id="c-message" placeholder="Write your message here..."></textarea>
+            </div>
+            <button class="submit-btn" onclick="sendMessage()">SEND MESSAGE</button>
+        </div>
+    </div>
+
+    <!-- Map Placeholder -->
+    <div class="map-section">
+        <h2>FIND <span>US</span></h2>
+        <div class="map-placeholder">
+            <i class="fas fa-map-marked-alt"></i>
+            <h3>Pehman Plaza, Gujrat</h3>
+            <p>Open in Google Maps for directions</p>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <section id="FAQ">
+    <div class="faq-section">
+        <h2>FREQUENTLY ASKED <span>QUESTIONS</span></h2>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">How long does delivery take? <i
+                    class="fas fa-chevron-down"></i></div>
+            <div class="faq-a">Standard delivery takes 3-5 business days within Pakistan. Express delivery (1-2 days) is
+                available for an additional fee.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">Can I return or exchange my order? <i
+                    class="fas fa-chevron-down"></i></div>
+            <div class="faq-a">Yes! We offer a 7-day return/exchange policy. Items must be unused, in original
+                packaging, and accompanied by the receipt.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">Do you offer Cash on Delivery? <i
+                    class="fas fa-chevron-down"></i></div>
+            <div class="faq-a">Yes, Cash on Delivery (COD) is available across all major cities in Pakistan. Online
+                payment via Visa/Mastercard is also accepted.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">How do I track my order? <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-a">Once your order is shipped, you'll receive a tracking number via SMS and email. You can
+                use this to track your delivery in real-time.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="toggleFaq(this)">Are your sizes true to fit? <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-a">Our shoes are true to international sizing (EU). We recommend referring to our size guide
+                on each product page. If you're between sizes, go up.</div>
+        </div>
+    </div>
+    </section>
+
+    <footer>
+        <div class="first-col">
+            <a href="home.html"><img src="./Pictures/logo.png" alt=""></a>
+            <h2>FOOTWEAR <br><span>LUXE</span></h2>
+        </div>
+        <div class="second-col">
+            <h3>CONTACT US</h3><br><br>
+            <a href="mailto:support@yourfootwear.com"><i class="fas fa-envelope"></i> &nbsp;
+                support@yourfootwear.com</a><br><br>
+            <a href="tel:+923001234567"><i class="fas fa-phone-alt fa-flip-horizontal"></i> &nbsp; +92 300
+                1234567</a><br><br>
+            <a href="https://wa.me/923001234567" target="_blank"><i class="fab fa-whatsapp"></i> &nbsp; +92 300
+                1234567</a>
+        </div>
+        <div class="third-col">
+            <h3>CUSTOMER INFORMATION</h3><br><br>
+            <a href="shippingpolicy.html">
+                <p>Shipping Policy</p><br>
+            </a>
+            <a href="terms&conditions.html">
+                <p>Terms & Condition</p><br>
+            </a>
+            <a href="privacypolicy.html">
+                <p>Privacy Policy</p><br>
+            </a>
+            <a href="exchangepolicy.html">
+                <p>Exchange & Returns Policy</p><br>
+            </a>
+            <a href="contact.html#FAQ">
+                <p>FAQ's</p>
+            </a>
+        </div>
+        <div class="fourth-col">
+            <h3>SIGN UP & SAVE</h3><br><br>
+            <p>Subscribe to get special offers, free giveaways,<br> and once-in-a-lifetime deals.</p><br>
+            <form action=""><input type="email" placeholder="&nbsp;&nbsp;Your email address"><button
+                    type="submit">Submit</button></form>
+            <div class="icons">
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-x-twitter"></i></a>
+                <a href=""><i class="fab fa-youtube"></i></a>
+                <a href=""><i class="fab fa-tiktok"></i></a>
+            </div>
+            <img src="./Pictures/mastercard.png" alt="">
+            <img src="./Pictures/visa.png" alt="">
+        </div>
+    </footer>
+    <p class="copyright">Copyright © 2026 Footwear Luxe all rights reserved.</p>
+
+    <div class="auth-overlay" id="auth-overlay" onclick="closeOnOverlay(event)">
+        <button class="auth-close" onclick="closeAuthPopup()">✕</button>
+        <div class="auth-popup">
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="switchAuthTab('login')">LOGIN</button>
+                <button class="auth-tab" onclick="switchAuthTab('signup')">SIGN UP</button>
+            </div>
+            <div class="auth-body">
+                <!-- LOGIN -->
+                <div class="auth-section active" id="popup-login">
+                    <div class="auth-msg" id="login-msg"></div>
+                    <div class="auth-field"><label>Email</label><input type="email" id="p-login-email"
+                            placeholder="you@example.com"></div>
+                    <div class="auth-field"><label>Password</label><input type="password" id="p-login-pass"
+                            placeholder="Your password"></div>
+                    <button class="auth-submit" onclick="doLogin()">LOGIN</button>
+                </div>
+                <!-- SIGNUP -->
+                <div class="auth-section" id="popup-signup">
+                    <div class="auth-msg" id="signup-msg"></div>
+                    <div class="auth-field"><label>Full Name</label><input type="text" id="p-signup-name"
+                            placeholder="Your name"></div>
+                    <div class="auth-field"><label>Email</label><input type="email" id="p-signup-email"
+                            placeholder="you@example.com"></div>
+                    <div class="auth-field"><label>Password</label><input type="password" id="p-signup-pass"
+                            placeholder="Min. 8 characters"></div>
+                    <button class="auth-submit" onclick="doSignup()">CREATE ACCOUNT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const fname = document.getElementById('c-fname').value.trim();
+            const email = document.getElementById('c-email').value.trim();
+            const msg = document.getElementById('c-message').value.trim();
+            if (!fname || !email || !msg) { alert('Please fill all required fields.'); return; }
+            document.getElementById('contact-success').style.display = 'block';
+            document.getElementById('c-fname').value = '';
+            document.getElementById('c-lname').value = '';
+            document.getElementById('c-email').value = '';
+            document.getElementById('c-phone').value = '';
+            document.getElementById('c-subject').value = '';
+            document.getElementById('c-message').value = '';
+            setTimeout(() => document.getElementById('contact-success').style.display = 'none', 4000);
+        }
+        function toggleFaq(el) {
+            const item = el.parentElement;
+            item.classList.toggle('open');
+        }
+
+        function updateNavBadge() {
+            const cart = JSON.parse(localStorage.getItem('fl_cart') || '[]');
+            document.getElementById('nav-cart-count').textContent = cart.reduce((s, i) => s + i.qty, 0);
+        }
+        updateNavBadge();
+
+        function toggleAuthPopup() {
+            document.getElementById('auth-overlay').classList.toggle('open');
+        }
+        function closeAuthPopup() {
+            document.getElementById('auth-overlay').classList.remove('open');
+        }
+        function closeOnOverlay(e) {
+            if (e.target === document.getElementById('auth-overlay')) closeAuthPopup();
+        }
+        function switchAuthTab(tab) {
+            document.querySelectorAll('.auth-tab').forEach(function (t, i) {
+                t.classList.toggle('active', tab === 'login' ? i === 0 : i === 1);
+            });
+            document.getElementById('popup-login').classList.toggle('active', tab === 'login');
+            document.getElementById('popup-signup').classList.toggle('active', tab === 'signup');
+        }
+        function showMsg(id, text, type) {
+            var el = document.getElementById(id);
+            el.textContent = text; el.className = 'auth-msg ' + type;
+        }
+        function doLogin() {
+            var email = document.getElementById('p-login-email').value.trim();
+            var pass = document.getElementById('p-login-pass').value.trim();
+            if (!email || !pass) { showMsg('login-msg', 'Please fill all fields.', 'error'); return; }
+            var users = JSON.parse(localStorage.getItem('fl_users') || '[]');
+            var user = users.find(function (u) { return u.email === email && u.password === pass; });
+            if (!user) { showMsg('login-msg', 'Wrong email or password.', 'error'); return; }
+            localStorage.setItem('fl_loggedIn', JSON.stringify({ name: user.name, email: email }));
+            showMsg('login-msg', '✓ Welcome back, ' + user.name + '!', 'success');
+            setTimeout(closeAuthPopup, 1500);
+        }
+        function doSignup() {
+            var name = document.getElementById('p-signup-name').value.trim();
+            var email = document.getElementById('p-signup-email').value.trim();
+            var pass = document.getElementById('p-signup-pass').value.trim();
+            if (!name || !email || pass.length < 8) { showMsg('signup-msg', 'Fill all fields. Password min 8 chars.', 'error'); return; }
+            var users = JSON.parse(localStorage.getItem('fl_users') || '[]');
+            if (users.find(function (u) { return u.email === email; })) { showMsg('signup-msg', 'Email already registered.', 'error'); return; }
+            users.push({ name: name, email: email, password: pass });
+            localStorage.setItem('fl_users', JSON.stringify(users));
+            showMsg('signup-msg', '✓ Account created! Please login.', 'success');
+            setTimeout(function () { switchAuthTab('login'); }, 1500);
+        }
+    </script>
+</body>
+
+</html>

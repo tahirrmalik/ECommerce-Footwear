@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Footwear Luxe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Magra:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cart.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="logo-img">
+            <a href="home.html"><img src="./Pictures/logo.png" alt="Footwear Luxe"></a>
+        </div>
+        <div class="nav-links">
+            <a href="home.html">HOME</a>
+            <a href="shopnow.html">SHOP NOW</a>
+            <a href="aboutus.html">ABOUT US</a>
+            <a href="contact.html">CONTACT US</a>
+        </div>
+        <div class="nav-right">
+            <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a><span class="cart-badge"
+                id="nav-cart-count">0</span>
+            <i class="fa-solid fa-user" onclick="toggleAuthPopup()"></i>
+        </div>
+    </nav>
+
+    <!-- STEPS BAR -->
+    <div class="steps-bar" id="steps-bar">
+        <div class="step active" id="step1">
+            <div class="step-num">1</div> Cart
+        </div>
+        <div class="step-line" id="line1"></div>
+        <div class="step" id="step2">
+            <div class="step-num">2</div> Checkout
+        </div>
+        <div class="step-line" id="line2"></div>
+        <div class="step" id="step3">
+            <div class="step-num">3</div> Confirmation
+        </div>
+    </div>
+
+    <!-- =================== CART VIEW =================== -->
+    <div class="page-wrap active" id="cart-view">
+        <div class="cart-layout">
+            <!-- Left: items -->
+            <div>
+                <div class="cart-header">
+                    <h2>MY <span>CART</span></h2>
+                </div>
+
+                <!-- Empty state -->
+                <div class="empty-cart" id="empty-cart" style="display:none; flex-direction:column;">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <h3>Your cart is empty</h3>
+                    <p style="color:#aaa; font-size:0.9rem;">Looks like you haven't added anything yet.</p>
+                    <a href="shopnow.html">SHOP NOW</a>
+                </div>
+
+                <!-- Items table -->
+                <table class="cart-table" id="cart-table">
+                    <thead>
+                        <tr>
+                            <th>PRODUCT</th>
+                            <th>SIZE</th>
+                            <th>PRICE</th>
+                            <th>QUANTITY</th>
+                            <th>TOTAL</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- Right: summary -->
+            <div class="order-summary">
+                <h3>ORDER SUMMARY</h3>
+                <div class="summary-row"><span>Subtotal</span><span id="s-subtotal">Rs 0</span></div>
+                <div class="summary-row"><span>Discount</span><span class="discount-val" id="s-discount">— Rs 0</span>
+                </div>
+                <div class="summary-row"><span>Shipping</span><span id="s-shipping">Rs 250</span></div>
+                <div class="summary-row"><span>Promo</span><span class="discount-val" id="s-promo">—</span></div>
+                <div class="promo-wrap">
+                    <input type="text" id="promo-input" placeholder="Promo code">
+                    <button onclick="applyPromo()">APPLY</button>
+                </div>
+                <div class="promo-msg" id="promo-msg"></div>
+                <div class="summary-row total"><span>TOTAL</span><span id="s-total">Rs 0</span></div>
+                <button class="checkout-btn" onclick="goToCheckout()">PROCEED TO CHECKOUT</button>
+                <p class="secure-note"><i class="fas fa-lock"></i> Secure Checkout</p>
+                <div class="payment-icons">
+                    <span>VISA</span><span>MC</span><span>COD</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================== CHECKOUT VIEW =================== -->
+    <div class="page-wrap" id="checkout-view">
+        <div class="checkout-layout">
+            <!-- Left: form -->
+            <div class="checkout-form-box">
+                <h2>CHECKOUT <span>DETAILS</span></h2>
+
+                <!-- Personal Info -->
+                <div class="form-section-block">
+                    <h3><i class="fas fa-user"></i> Personal Information</h3>
+                    <div class="field-row">
+                        <div class="field"><label>First Name *</label><input type="text" id="ch-fname"
+                                placeholder="First Name"></div>
+                        <div class="field"><label>Last Name *</label><input type="text" id="ch-lname"
+                                placeholder="Last Name"></div>
+                    </div>
+                    <div class="field-row">
+                        <div class="field"><label>Email *</label><input type="email" id="ch-email"
+                                placeholder="you@example.com"></div>
+                        <div class="field"><label>Phone *</label><input type="tel" id="ch-phone"
+                                placeholder="+92 300 0000000"></div>
+                    </div>
+                </div>
+
+                <!-- Shipping Address -->
+                <div class="form-section-block">
+                    <h3><i class="fas fa-map-marker-alt"></i> Shipping Address</h3>
+                    <div class="field">
+                        <label>Full Address *</label>
+                        <input type="text" id="ch-address" placeholder="House #, Street, Area">
+                    </div>
+                    <div class="field-row">
+                        <div class="field">
+                            <label>City *</label>
+                            <select id="ch-city">
+                                <option value="">Select City</option>
+                                <option>Lahore</option>
+                                <option>Gujrat</option>
+                                <option>Islamabad</option>
+                                <option>Rawalpindi</option>
+                                <option>Faisalabad</option>
+                                <option>Multan</option>
+                                <option>Gujranwala</option>
+                                <option>Sialkot</option>
+                                <option>Peshawar</option>
+                                <option>Quetta</option>
+                                <option>Hyderabad</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Province *</label>
+                            <select id="ch-province">
+                                <option value="">Select Province</option>
+                                <option>Punjab</option>
+                                <option>Sindh</option>
+                                <option>KPK</option>
+                                <option>Balochistan</option>
+                                <option>Islamabad Capital Territory</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field-row">
+                        <div class="field"><label>Postal Code</label><input type="text" id="ch-postal"
+                                placeholder="54000"></div>
+                        <div class="field"><label>Landmark (Optional)</label><input type="text" id="ch-landmark"
+                                placeholder="Near mosque / school"></div>
+                    </div>
+                    <div class="field">
+                        <label>Delivery Notes (Optional)</label>
+                        <textarea id="ch-notes" rows="2"
+                            placeholder="Any special instructions for delivery..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="form-section-block">
+                    <h3><i class="fas fa-credit-card"></i> Payment Method</h3>
+                    <div class="payment-methods">
+                        <div class="payment-option selected" onclick="selectPayment(this, 'cod')">
+                            <input type="radio" name="payment" id="pay-cod" checked>
+                            <label for="pay-cod">Cash on Delivery (COD)</label>
+                            <div class="pay-icons"><span>💵 COD</span></div>
+                        </div>
+                        <div class="payment-option" onclick="selectPayment(this, 'card')">
+                            <input type="radio" name="payment" id="pay-card">
+                            <label for="pay-card">Credit / Debit Card</label>
+                            <div class="pay-icons"><span>VISA</span><span>MC</span></div>
+                        </div>
+                        <div class="payment-option" onclick="selectPayment(this, 'easypaisa')">
+                            <input type="radio" name="payment" id="pay-ep">
+                            <label for="pay-ep">Easypaisa / JazzCash</label>
+                            <div class="pay-icons"><span>📱 Mobile</span></div>
+                        </div>
+                    </div>
+
+                    <!-- Card fields -->
+                    <div class="card-fields" id="card-fields">
+                        <div style="margin-top:16px;">
+                            <div class="field"><label>Cardholder Name</label><input type="text" id="card-name"
+                                    placeholder="Name on card"></div>
+                            <div class="field"><label>Card Number</label><input type="text" id="card-num"
+                                    placeholder="0000 0000 0000 0000" maxlength="19" oninput="formatCard(this)"></div>
+                            <div class="field-row">
+                                <div class="field"><label>Expiry Date</label><input type="text" id="card-exp"
+                                        placeholder="MM/YY" maxlength="5" oninput="formatExpiry(this)"></div>
+                                <div class="field"><label>CVV</label><input type="text" id="card-cvv" placeholder="•••"
+                                        maxlength="3"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Easypaisa fields -->
+                    <div class="card-fields" id="ep-fields">
+                        <div style="margin-top:16px;">
+                            <div class="field"><label>Mobile Wallet Number</label><input type="tel" id="ep-num"
+                                    placeholder="+92 300 0000000"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display:flex; gap:12px; margin-top:4px;">
+                    <button
+                        style="height:54px; padding:0 24px; background:white; border:2px solid rgb(32,32,113); color:rgb(32,32,113); border-radius:10px; font-family:'Magra',sans-serif; font-weight:bold; cursor:pointer; transition:all 0.3s;"
+                        onclick="goBack()">← BACK</button>
+                    <button class="place-order-btn" style="flex:1;" onclick="placeOrder()">PLACE ORDER →</button>
+                </div>
+            </div>
+
+            <!-- Right: summary -->
+            <div class="checkout-summary">
+                <h3>YOUR ORDER</h3>
+                <div id="checkout-items-list"></div>
+                <div class="checkout-divider"></div>
+                <div class="summary-row"><span>Subtotal</span><span id="co-subtotal">Rs 0</span></div>
+                <div class="summary-row"><span>Discount</span><span class="discount-val" id="co-discount">Rs 0</span>
+                </div>
+                <div class="summary-row"><span>Shipping</span><span id="co-shipping">Rs 250</span></div>
+                <div class="summary-row" id="co-promo-row" style="display:none;"><span>Promo</span><span
+                        class="discount-val" id="co-promo">—</span></div>
+                <div class="summary-row total"><span>TOTAL</span><span id="co-total">Rs 0</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================== SUCCESS VIEW =================== -->
+    <div class="page-wrap" id="success-view">
+        <div class="success-page">
+            <div class="success-icon"><i class="fas fa-check"></i></div>
+            <h1>ORDER <span>PLACED!</span></h1>
+            <p>Thank you for shopping with Footwear Luxe! Your order has been confirmed and will be dispatched within
+                1-2 business days.</p>
+            <p>You will receive an SMS & email confirmation shortly.</p>
+            <div class="order-id">
+                <span>Order ID</span>
+                <strong id="order-id-display">#FL-000000</strong>
+            </div>
+            <div id="order-details-summary"
+                style="background:#f9f9ff; border:1px solid #e5e7eb; border-radius:12px; padding:20px 28px; margin-top:10px; text-align:left; max-width:440px; width:100%;">
+            </div>
+            <div class="success-actions">
+                <a href="home.html" class="btn-primary">CONTINUE SHOPPING</a>
+                <a href="shopnow.html" class="btn-outline">VIEW MORE PRODUCTS</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="first-col">
+            <a href="home.html"><img src="./Pictures/logo.png" alt=""></a>
+            <h2>FOOTWEAR <br><span>LUXE</span></h2>
+        </div>
+        <div class="second-col">
+            <h3>CONTACT US</h3><br><br>
+            <a href="mailto:support@yourfootwear.com"><i class="fas fa-envelope"></i> &nbsp;
+                support@yourfootwear.com</a><br><br>
+            <a href="tel:+923001234567"><i class="fas fa-phone-alt fa-flip-horizontal"></i> &nbsp; +92 300
+                1234567</a><br><br>
+            <a href="https://wa.me/923001234567" target="_blank"><i class="fab fa-whatsapp"></i> &nbsp; +92 300
+                1234567</a>
+        </div>
+        <div class="third-col">
+            <h3>CUSTOMER INFORMATION</h3><br><br>
+            <a href="shippingpolicy.html">
+                <p>Shipping Policy</p><br>
+            </a>
+            <a href="terms&conditions.html">
+                <p>Terms & Condition</p><br>
+            </a>
+            <a href="privacypolicy.html">
+                <p>Privacy Policy</p><br>
+            </a>
+            <a href="exchangepolicy.html">
+                <p>Exchange & Returns Policy</p><br>
+            </a>
+            <a href="contact.html#FAQ">
+                <p>FAQ's</p>
+            </a>
+        </div>
+        <div class="fourth-col">
+            <h3>SIGN UP & SAVE</h3><br><br>
+            <p>Subscribe to get special offers, free giveaways,<br> and once-in-a-lifetime deals.</p><br>
+            <form action=""><input type="email" placeholder="&nbsp;&nbsp;Your email address"><button
+                    type="submit">Submit</button></form>
+            <div class="icons">
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-x-twitter"></i></a>
+                <a href=""><i class="fab fa-youtube"></i></a>
+                <a href=""><i class="fab fa-tiktok"></i></a>
+            </div>
+            <img src="./Pictures/mastercard.png" alt="">
+            <img src="./Pictures/visa.png" alt="">
+        </div>
+    </footer>
+    <p class="copyright">Copyright © 2026 Footwear Luxe all rights reserved.</p>
+
+    <div class="auth-overlay" id="auth-overlay" onclick="closeOnOverlay(event)">
+        <button class="auth-close" onclick="closeAuthPopup()">✕</button>
+        <div class="auth-popup">
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="switchAuthTab('login')">LOGIN</button>
+                <button class="auth-tab" onclick="switchAuthTab('signup')">SIGN UP</button>
+            </div>
+            <div class="auth-body">
+                <!-- LOGIN -->
+                <div class="auth-section active" id="popup-login">
+                    <div class="auth-msg" id="login-msg"></div>
+                    <div class="auth-field"><label>Email</label><input type="email" id="p-login-email"
+                            placeholder="you@example.com"></div>
+                    <div class="auth-field"><label>Password</label><input type="password" id="p-login-pass"
+                            placeholder="Your password"></div>
+                    <button class="auth-submit" onclick="doLogin()">LOGIN</button>
+                </div>
+                <!-- SIGNUP -->
+                <div class="auth-section" id="popup-signup">
+                    <div class="auth-msg" id="signup-msg"></div>
+                    <div class="auth-field"><label>Full Name</label><input type="text" id="p-signup-name"
+                            placeholder="Your name"></div>
+                    <div class="auth-field"><label>Email</label><input type="email" id="p-signup-email"
+                            placeholder="you@example.com"></div>
+                    <div class="auth-field"><label>Password</label><input type="password" id="p-signup-pass"
+                            placeholder="Min. 8 characters"></div>
+                    <button class="auth-submit" onclick="doSignup()">CREATE ACCOUNT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        let cart = JSON.parse(localStorage.getItem('fl_cart') || '[]');
+        let promoDiscount = 0;
+        let selectedPayment = 'cod';
+        const SHIPPING = 250;
+        const FREE_SHIP_THRESHOLD = 14999;
+        const PROMOS = { 'LUXE10': 10, 'SAVE15': 15, 'WELCOME20': 20 };
+
+        function saveCart() { localStorage.setItem('fl_cart', JSON.stringify(cart)); }
+
+        function getSubtotal() { return cart.reduce((s, i) => s + parseFloat(i.newPrice) * i.qty, 0); }
+        function getSavedAmt() { return cart.reduce((s, i) => s + (parseFloat(i.oldPrice) - parseFloat(i.newPrice)) * i.qty, 0); }
+        function getShipping() { return getSubtotal() >= FREE_SHIP_THRESHOLD ? 0 : SHIPPING; }
+        function getPromoAmt() { return Math.round(getSubtotal() * promoDiscount / 100); }
+        function getTotal() { return getSubtotal() + getShipping() - getPromoAmt(); }
+        function fmt(n) { return 'Rs ' + Math.round(n).toLocaleString(); }
+
+        function updateNavBadge() {
+            const total = cart.reduce((s, i) => s + i.qty, 0);
+            document.getElementById('nav-cart-count').textContent = total;
+        }
+
+        function renderCart() {
+            const tbody = document.getElementById('cart-tbody');
+            const empty = document.getElementById('empty-cart');
+            const table = document.getElementById('cart-table');
+
+            if (cart.length === 0) {
+                empty.style.display = 'flex';
+                table.style.display = 'none';
+            } else {
+                empty.style.display = 'none';
+                table.style.display = 'table';
+                tbody.innerHTML = cart.map((item, idx) => `
+            <tr>
+                <td>
+                    <div class="cart-product">
+                        <img src="${item.image}" alt="${item.name}" onerror="this.style.background='#eee';this.src=''">
+                        <div class="cart-product-info">
+                            <h4>${item.name}</h4>
+                            <p>${item.color || ''}</p>
+                        </div>
+                    </div>
+                </td>
+                <td><span style="background:#f0f0ff;color:rgb(32,32,113);padding:4px 10px;border-radius:6px;font-size:0.85rem;font-weight:bold;">${item.size}</span></td>
+                <td class="item-price">${fmt(item.newPrice)}</td>
+                <td>
+                    <div class="qty-control">
+                        <button class="qty-btn" onclick="changeQty(${idx}, -1)">−</button>
+                        <span class="qty-num">${item.qty}</span>
+                        <button class="qty-btn" onclick="changeQty(${idx}, 1)">+</button>
+                    </div>
+                </td>
+                <td class="item-price">${fmt(item.newPrice * item.qty)}</td>
+                <td><button class="remove-btn" onclick="removeItem(${idx})" title="Remove"><i class="fas fa-times"></i></button></td>
+            </tr>
+        `).join('');
+            }
+            updateSummary();
+            updateNavBadge();
+        }
+
+        function updateSummary() {
+            const sub = getSubtotal();
+            const saved = getSavedAmt();
+            const ship = getShipping();
+            const promo = getPromoAmt();
+            const total = getTotal();
+
+            document.getElementById('s-subtotal').textContent = fmt(sub);
+            document.getElementById('s-discount').textContent = saved > 0 ? '— ' + fmt(saved) : '—';
+            document.getElementById('s-shipping').textContent = ship === 0 ? 'FREE' : fmt(ship);
+            document.getElementById('s-promo').textContent = promo > 0 ? '— ' + fmt(promo) : '—';
+            document.getElementById('s-total').textContent = fmt(total);
+        }
+
+        function changeQty(idx, delta) {
+            cart[idx].qty = Math.max(1, cart[idx].qty + delta);
+            saveCart(); renderCart();
+        }
+
+        function removeItem(idx) {
+            cart.splice(idx, 1);
+            saveCart(); renderCart();
+        }
+
+        function applyPromo() {
+            const code = document.getElementById('promo-input').value.trim().toUpperCase();
+            const msg = document.getElementById('promo-msg');
+            if (PROMOS[code]) {
+                promoDiscount = PROMOS[code];
+                msg.style.color = 'green';
+                msg.textContent = ` Promo "${code}" applied — ${promoDiscount}% off!`;
+                msg.style.display = 'block';
+            } else {
+                promoDiscount = 0;
+                msg.style.color = 'red';
+                msg.textContent = ' Invalid promo code.';
+                msg.style.display = 'block';
+            }
+            updateSummary();
+        }
+
+        function goToCheckout() {
+            if (cart.length === 0) { alert('Your cart is empty!'); return; }
+            setStep(2);
+            renderCheckoutSummary();
+        }
+
+        function goBack() { setStep(1); }
+
+        function setStep(n) {
+            document.getElementById('cart-view').classList.toggle('active', n === 1);
+            document.getElementById('checkout-view').classList.toggle('active', n === 2);
+            document.getElementById('success-view').classList.toggle('active', n === 3);
+
+            [1, 2, 3].forEach(i => {
+                const s = document.getElementById('step' + i);
+                s.classList.remove('active', 'done');
+                if (i < n) s.classList.add('done');
+                if (i === n) s.classList.add('active');
+            });
+            [1, 2].forEach(i => {
+                const l = document.getElementById('line' + i);
+                l.classList.toggle('done', i < n);
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderCheckoutSummary() {
+            const list = document.getElementById('checkout-items-list');
+            list.innerHTML = cart.map(item => `
+        <div class="checkout-item">
+            <img src="${item.image}" alt="${item.name}" onerror="this.style.background='#eee';this.src=''">
+            <div class="checkout-item-info">
+                <h5>${item.name}</h5>
+                <p>Size: ${item.size} | Qty: ${item.qty}</p>
+            </div>
+            <span class="checkout-item-price">${fmt(item.newPrice * item.qty)}</span>
+        </div>
+    `).join('');
+
+            const sub = getSubtotal(), saved = getSavedAmt(), ship = getShipping(), promo = getPromoAmt();
+            document.getElementById('co-subtotal').textContent = fmt(sub);
+            document.getElementById('co-discount').textContent = saved > 0 ? '— ' + fmt(saved) : '—';
+            document.getElementById('co-shipping').textContent = ship === 0 ? 'FREE' : fmt(ship);
+            if (promo > 0) {
+                document.getElementById('co-promo').textContent = '— ' + fmt(promo);
+                document.getElementById('co-promo-row').style.display = 'flex';
+            }
+            document.getElementById('co-total').textContent = fmt(getTotal());
+        }
+
+        function selectPayment(el, type) {
+            document.querySelectorAll('.payment-option').forEach(o => { o.classList.remove('selected'); o.querySelector('input').checked = false; });
+            el.classList.add('selected');
+            el.querySelector('input').checked = true;
+            selectedPayment = type;
+            document.getElementById('card-fields').classList.toggle('show', type === 'card');
+            document.getElementById('ep-fields').classList.toggle('show', type === 'easypaisa');
+        }
+
+        function formatCard(input) {
+            let v = input.value.replace(/\D/g, '').slice(0, 16);
+            input.value = v.replace(/(.{4})/g, '$1 ').trim();
+        }
+        function formatExpiry(input) {
+            let v = input.value.replace(/\D/g, '').slice(0, 4);
+            if (v.length >= 2) v = v.slice(0, 2) + '/' + v.slice(2);
+            input.value = v;
+        }
+
+        function placeOrder() {
+            const fname = document.getElementById('ch-fname').value.trim();
+            const lname = document.getElementById('ch-lname').value.trim();
+            const email = document.getElementById('ch-email').value.trim();
+            const phone = document.getElementById('ch-phone').value.trim();
+            const address = document.getElementById('ch-address').value.trim();
+            const city = document.getElementById('ch-city').value;
+            const province = document.getElementById('ch-province').value;
+
+            if (!fname || !lname || !email || !phone || !address || !city || !province) {
+                alert('Please fill all required fields (marked with *).'); return;
+            }
+            if (!/\S+@\S+\.\S+/.test(email)) { alert('Please enter a valid email address.'); return; }
+            if (selectedPayment === 'card') {
+                const cardName = document.getElementById('card-name').value.trim();
+                const cardNum = document.getElementById('card-num').value.replace(/\s/g, '');
+                const cardExp = document.getElementById('card-exp').value;
+                const cardCvv = document.getElementById('card-cvv').value;
+                if (!cardName || cardNum.length !== 16 || !cardExp || cardCvv.length < 3) {
+                    alert('Please enter valid card details.'); return;
+                }
+            }
+
+            const orderId = 'FL-' + Date.now().toString().slice(-6);
+            document.getElementById('order-id-display').textContent = '#' + orderId;
+
+            const payLabels = { cod: 'Cash on Delivery', card: 'Credit/Debit Card', easypaisa: 'Easypaisa / JazzCash' };
+            document.getElementById('order-details-summary').innerHTML = `
+        <p style="margin-bottom:8px;color:#555;font-size:0.9rem;"><strong style="color:rgb(32,32,113);">Name:</strong> ${fname} ${lname}</p>
+        <p style="margin-bottom:8px;color:#555;font-size:0.9rem;"><strong style="color:rgb(32,32,113);">Phone:</strong> ${phone}</p>
+        <p style="margin-bottom:8px;color:#555;font-size:0.9rem;"><strong style="color:rgb(32,32,113);">Address:</strong> ${address}, ${city}, ${province}</p>
+        <p style="margin-bottom:8px;color:#555;font-size:0.9rem;"><strong style="color:rgb(32,32,113);">Payment:</strong> ${payLabels[selectedPayment]}</p>
+        <p style="color:#555;font-size:0.9rem;"><strong style="color:rgb(32,32,113);">Total Paid:</strong> <span style="color:orange;font-weight:bold;">${fmt(getTotal())}</span></p>
+    `;
+
+            // Save order history
+            const orders = JSON.parse(localStorage.getItem('fl_orders') || '[]');
+            orders.push({ orderId, fname, lname, email, phone, address, city, province, payment: selectedPayment, items: cart, total: getTotal(), date: new Date().toISOString() });
+            localStorage.setItem('fl_orders', JSON.stringify(orders));
+
+            // Clear cart
+            cart = [];
+            saveCart();
+            updateNavBadge();
+
+            setStep(3);
+        }
+
+        // ---- INIT ----
+        renderCart();
+
+        function toggleAuthPopup() {
+            document.getElementById('auth-overlay').classList.toggle('open');
+        }
+        function closeAuthPopup() {
+            document.getElementById('auth-overlay').classList.remove('open');
+        }
+        function closeOnOverlay(e) {
+            if (e.target === document.getElementById('auth-overlay')) closeAuthPopup();
+        }
+        function switchAuthTab(tab) {
+            document.querySelectorAll('.auth-tab').forEach(function (t, i) {
+                t.classList.toggle('active', tab === 'login' ? i === 0 : i === 1);
+            });
+            document.getElementById('popup-login').classList.toggle('active', tab === 'login');
+            document.getElementById('popup-signup').classList.toggle('active', tab === 'signup');
+        }
+        function showMsg(id, text, type) {
+            var el = document.getElementById(id);
+            el.textContent = text; el.className = 'auth-msg ' + type;
+        }
+        function doLogin() {
+            var email = document.getElementById('p-login-email').value.trim();
+            var pass = document.getElementById('p-login-pass').value.trim();
+            if (!email || !pass) { showMsg('login-msg', 'Please fill all fields.', 'error'); return; }
+            var users = JSON.parse(localStorage.getItem('fl_users') || '[]');
+            var user = users.find(function (u) { return u.email === email && u.password === pass; });
+            if (!user) { showMsg('login-msg', 'Wrong email or password.', 'error'); return; }
+            localStorage.setItem('fl_loggedIn', JSON.stringify({ name: user.name, email: email }));
+            showMsg('login-msg', '✓ Welcome back, ' + user.name + '!', 'success');
+            setTimeout(closeAuthPopup, 1500);
+        }
+        function doSignup() {
+            var name = document.getElementById('p-signup-name').value.trim();
+            var email = document.getElementById('p-signup-email').value.trim();
+            var pass = document.getElementById('p-signup-pass').value.trim();
+            if (!name || !email || pass.length < 8) { showMsg('signup-msg', 'Fill all fields. Password min 8 chars.', 'error'); return; }
+            var users = JSON.parse(localStorage.getItem('fl_users') || '[]');
+            if (users.find(function (u) { return u.email === email; })) { showMsg('signup-msg', 'Email already registered.', 'error'); return; }
+            users.push({ name: name, email: email, password: pass });
+            localStorage.setItem('fl_users', JSON.stringify(users));
+            showMsg('signup-msg', '✓ Account created! Please login.', 'success');
+            setTimeout(function () { switchAuthTab('login'); }, 1500);
+        }
+    </script>
+</body>
+
+</html>
